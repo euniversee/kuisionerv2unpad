@@ -20,36 +20,27 @@ Skrip ini dirancang untuk otomatisasi proses pengisian kuisioner di sistem akade
    - Paste skrip yang telah disalin ke dalam console.  
    - Tekan `Enter` untuk menjalankan skrip.  
   
-4. **Menahanan Skrip:**  
+4. **Menghentikan skrip:**  
    - Jika ingin menghentikan skrip, refresh halaman dengan menekan `F5` atau menggunakan tombol refresh di browser.  
   
 ## Konfigurasi  
 - **Penilaian 1-5:**  
   - Jika ingin mengubah penilaian dari kolom 5 menjadi kolom 1, ubah `n+4` menjadi `n` pada baris berikut:  
+    ```javascript
+    const radioButtons = document.querySelectorAll('tbody tr td:nth-child(n+4) input[type="radio"]');
     ```
-javascript
-
-const radioButtons = document.querySelectorAll('tbody tr td:nth-child(n+4) input[type="radio"]');
-
-
   - Contoh untuk kolom 1:  
-    ```
-javascript
-
-const radioButtons = document.querySelectorAll('tbody tr td:nth-child(n) input[type="radio"]');
-
-
-  
+    ```javascript
+    const radioButtons = document.querySelectorAll('tbody tr td:nth-child(n) input[type="radio"]');
+    ``` 
+    `n = 1, n + 4 == 1 + 4 == 5`
+    
 - **Isi Teks:**  
   - Jika ingin mengubah isi teks di textarea, ubah string di variabel `textToType`:  
+    ```javascript
+    const textToType = "Sudah bagus";
     ```
-javascript
-
-const textToType = "Sudah bagus";
-
-
   - Contoh untuk mengubah isi teks menjadi "Tidak Sesuai":  
+    ```javascript
+    const textToType = "Tidak Sesuai";
     ```
-javascript
-
-const textToType = "Tidak Sesuai";
